@@ -70,6 +70,6 @@ public class CustomerAPI {
         FieldsUtil.setFields(source, getFields(fields));
     }
     private List<String> getFields(final String fields) {
-        return StringUtils.isEmpty(fields) ? Collections.emptyList() : Arrays.asList(fields.split("\\,"));
+        return !StringUtils.hasText(fields) ? Collections.emptyList() : Arrays.asList(fields.split("\\,"));
     }
 }

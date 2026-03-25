@@ -11,7 +11,6 @@ import java.util.Map;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.google.common.collect.Lists;
 
 /**
  * Hack to filter the fields based on what client needs
@@ -26,7 +25,7 @@ public class FieldsUtil {
             return;
         }
         final List<Field> originalFields = getAllFields(new ArrayList<Field>(), original.getClass());
-        final List<String> adjustedFields = Lists.newArrayList(fields);
+        final List<String> adjustedFields = new ArrayList<>(fields);
         final Map<String, List<String>> nestedMap = new HashMap<>();
         //iterate and scan for nested objects
         for (final String name : fields) {
